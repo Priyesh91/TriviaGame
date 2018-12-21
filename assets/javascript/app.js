@@ -5,6 +5,12 @@ console.log(name);
 var correct = 0;
 var incorrect = 0;
 var noAnswer = 0;
+
+// timer functions
+var intervalId;
+var clockRunning = false;
+var time = 60;
+
 //Question bank array with another array in it with answer 
 //-->Master array{Object}
 //---------------->question, answer, choices-->[array]
@@ -34,10 +40,68 @@ var questionBank = [{
     answer: "D",
     choices: ["A", "B", "C", "D"]
   },
-]
-// Code to run when page loads
+];
 
+
+
+
+
+
+
+
+
+
+
+
+// Code to run when page loads
+window.onload = function name() {
+  $("#start").on("click", start);
+
+  $("#reset").on("click", reset);
+};
+
+
+
+
+
+
+
+function reset() {
+  clearInterval(intervalId);
+  clockRunning = false;
+  time = 60;
+  $("#display").text(time);
+
+  //add conditions to reset to start div conditions******
+
+}
 //function for count down timer
+function count() {
+  time--;
+  $("#display").text(time);
+}
+
+function start() {
+  //function start initiates start of countdown timer
+  if (!clockRunning) {
+    intervalId = setInterval(count, 1000);
+    clockRunning = true;
+  }
+
+  if (time === 0) {
+    endScreen();
+  }
+  //function start initiating start of game****
+}
+
+//function end screen
+function endscreen() {
+
+}
+
+
+
+
 
 //function for displaying question +  choices 
 
@@ -60,4 +124,3 @@ var questionBank = [{
 // * Don't let the player pick more than one answer per question.
 
 // * Don't forget to include a countdown timer.
-
