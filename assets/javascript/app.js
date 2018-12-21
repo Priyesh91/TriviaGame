@@ -6,10 +6,6 @@ var correct = 0;
 var incorrect = 0;
 var noAnswer = 0;
 
-// timer functions
-var intervalId;
-var clockRunning = false;
-var time = 60;
 
 //Question bank array with another array in it with answer 
 //-->Master array{Object}
@@ -42,6 +38,55 @@ var questionBank = [{
   },
 ];
 
+//-----------------------------Start-Button-----------------------
+//Startbutton on screen that will be hidden once triggered and start the questionScreen1
+$("#startTrivia").on("click", function () {
+  $(this).hide();
+  questionScreen1();
+});
+//-----------------------------Start-Button-----------------------
+
+//------------------------------TIMER------------------------------
+// timer variables
+var intervalId;
+var clockRunning = false;
+var time = 20;
+//timer display function 
+function startTimer() {
+  clearInterval(intervalId);
+  setInterval(count, 1000);
+}
+
+function count() {
+  time--;
+  if (time === 0) {
+    noAnsScreen();
+  }
+  $(".timer").text(time);
+}
+//-------------------------------TIMER-----------------------------
+
+
+//questionScreen1 function
+function questionScreen1() {
+  startTimer();
+  if (time === 0) {
+    noAnsScreen();
+  }
+};
+
+function noAnsScreen() {
+    clearInterval(intervalId);
+  time = 20;
+  startTimer();
+}
+
+
+var triviaEnd = false;
+
+function triviaEnd() {
+  
+}
 
 
 
@@ -54,50 +99,49 @@ var questionBank = [{
 
 
 // Code to run when page loads
-window.onload = function name() {
-  $("#start").on("click", start);
+// window.onload = function name() {
+//   $("#start").on("click", start);
 
-  $("#reset").on("click", reset);
-};
-
-
+//   $("#reset").on("click", reset);
+// };
 
 
 
 
 
-function reset() {
-  clearInterval(intervalId);
-  clockRunning = false;
-  time = 60;
-  $("#display").text(time);
 
-  //add conditions to reset to start div conditions******
 
-}
-//function for count down timer
-function count() {
-  time--;
-  $("#display").text(time);
-}
+//   //add conditions to reset to start div conditions******
 
-function start() {
-  //function start initiates start of countdown timer
-  if (!clockRunning) {
-    intervalId = setInterval(count, 1000);
-    clockRunning = true;
-  }
+// }
+// //function for count down timer
+// function count() {
+// time--;
+// $("#display").text(time);
+// if(timer === 0) {
+//   endTimer();
 
-  if (time === 0) {
-    endScreen();
-  }
-  //function start initiating start of game****
-}
+// }
+// }
 
-//function end screen
-function endscreen() {
+// function start() {
+//   //function start initiates start of countdown timer
+//   if (!clockRunning) {
+// clearInterval(intervalId);
+// intervalId = setInterval(count, 1000);
+//     clockRunning = true;
+//   }
 
-}
+//   if (time === 0) {
+//     endScreen();
+//   }
+//   //function start initiating start of game****
+// }
+
+// //function end screen
+// function endscreen() {
+
+// }
 
 
 
@@ -123,4 +167,4 @@ function endscreen() {
 
 // * Don't let the player pick more than one answer per question.
 
-// * Don't forget to include a countdown timer.
+// * Don't forget to include a countdown timer
