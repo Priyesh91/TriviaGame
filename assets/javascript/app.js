@@ -4,6 +4,7 @@ console.log(name);
 //Create Variables
 var correct = 0;
 var incorrect = 0;
+var noAnswer = 0;
 //Question bank array with another array in it with answer 
 //-->Master array{Object}
 //---------------->question, answer, choices-->[array]
@@ -34,6 +35,7 @@ var questionBank = [{
     choices: ["A", "B", "C", "D"]
   },
 ]
+// Code to run when page loads
 
 //function for count down timer
 
@@ -48,7 +50,7 @@ var questionBank = [{
 //slideshow with questions
 //End of count down timer will triger game to stop and show stats page
 //Clear stats and variables
-//
+
 
 
 // * The player will have a limited amount of time to finish the quiz. 
