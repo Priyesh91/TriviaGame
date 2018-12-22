@@ -77,19 +77,28 @@ $("#resetTrivia").on("click", function () {
 
 //------------------------------TIMER-----------------------------
 // timer variables
+var time = 12;
 var intervalId;
-var time = 20;
+
 //timer count and display function 
 function startTimer() {
   clearInterval(intervalId);
-  setInterval(count, 1000);
-
-}
+  intervalId = setInterval(count, 1000);
+  answered = true;
+};
 
 function count() {
   time--;
   $(".timer").text("Time Remaining: " + time);
-}
+  if (time === 0) {
+    stop();
+    timeUpScreen();
+    }
+};
+
+function stop() {
+  clearInterval(intervalId);
+};
 //-------------------------------TIMER----------------------------
 
 //-------------------------blankScreen function-------------------
@@ -108,7 +117,7 @@ function blankScreen() {
 
 //-------------------------questionScreen function-------------------------------
 function questionScreen() {
-  startTimer();
+
 
   answered = true;
   //write question 1 to the page
@@ -126,18 +135,28 @@ function questionScreen() {
   $(".choice4").attr({
     "data-index": 3
   }).append(`<h3>${questionBank[questionNumber].choices[3]}`);
+
+  //start timer once questions displayed
+  startTimer();
+
+
   //click function to stop timer and go to next screen
   $(".choice1, .choice2, .choice3, .choice4").on("click", function () {
     choiceSelected = $(this).data("index");
     clearInterval(intervalId);
     messageScreen();
   })
+
 }
 
 function messageScreen() {
-  
+alert("hiiii");
 }
 
+
+function timeUpScreen() {
+  
+}
 
 
 
