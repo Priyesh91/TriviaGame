@@ -6,8 +6,7 @@ console.log(name);
 var correct = 0;
 var incorrect = 0;
 var noAnswer = 0;
-// var question = 0;-----------delete
-
+var noAnswerByPass = 0;
 // question variables
 var questionNumber = 0;
 var choiceSelected;
@@ -15,6 +14,10 @@ var answered;
 var correctAns;
 var incorrectAns;
 var noAns;
+// timer variables
+var time = 12;
+var intervalId;
+
 //Question bank array with another array in it with answer 
 //-->Master array{Object}
 //---------------->question, answer, choices-->[array]
@@ -76,27 +79,21 @@ $("#resetTrivia").on("click", function () {
 //-----------------------------Reset-Trivia-Button----------------
 
 //------------------------------TIMER-----------------------------
-// timer variables
-var time = 12;
-var intervalId;
-
-//timer count and display function 
+// timer count and display function 
 function startTimer() {
   clearInterval(intervalId);
   intervalId = setInterval(count, 1000);
   answered = true;
 };
-
 function count() {
   time--;
   $(".timer").text("Time Remaining: " + time);
   if (time === 0) {
     stop();
     noAnswer++;
-    timeUpScreen();
+        // timeUpScreen();
   }
 };
-
 function stop() {
   clearInterval(intervalId);
 };
@@ -124,6 +121,27 @@ function emptyScreen() {
 
 //-------------------------questionScreen function (QUESTION 1)-------------------------------
 function questionScreen() {
+ //------------------------------TIMER-----------------------------
+// timer count and display function 
+function startTimer() {
+  clearInterval(intervalId);
+  intervalId = setInterval(count, 1000);
+  answered = true;
+};
+function count() {
+  time--;
+  $(".timer").text("Time Remaining: " + time);
+  if (time === 0) {
+    stop();
+    noAnswer++;
+    timeUpScreen();
+      }
+};
+function stop() {
+  clearInterval(intervalId);
+};
+//-------------------------------TIMER----------------------------
+
   //questionnumber declared as object 1 in array to keep same code for subsequent questions just change the question number value code is inefficient but quickest way for me to just copy and paste it for multiple question
   questionNumber = 0;
   answered = true;
@@ -143,7 +161,7 @@ function questionScreen() {
     "data-index": "D"
   }).append(`<h3>${questionBank[questionNumber].choices[3]}`);
   //start timer once questions displayed
-  startTimer();
+       startTimer();
   //click function to stop timer and go to next screen
   $(".choice1, .choice2, .choice3, .choice4").on("click", function () {
     choiceSelected = $(this).data("index");
@@ -159,11 +177,7 @@ function questionScreen() {
       incorrectScreen();
     }
 
-  })
-console.log(noAnswer);
-if(noAnswer++){
-  timeUpScreen();
-}
+  });
 
 }
 
