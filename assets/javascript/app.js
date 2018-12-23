@@ -11,9 +11,7 @@ var answered;
 var correctAns;
 var incorrectAns;
 var noAns;
-// timer variables
-var time = 12;
-var intervalId;
+
 //Question bank array with another array in it with answer 
 //-->Master array{Object}
 //---------------->question, answer, choices-->[array]
@@ -97,11 +95,15 @@ function emptyScreen() {
 //-------------------------------questionScreen function (QUESTION 1)--------------------------
 function questionScreen() {
   //------------------------------TIMER-----------------------------
+  // timer variables
+  var time = 12;
+  var intervalId;
+
   // timer count and display function 
   function startTimer() {
     clearInterval(intervalId);
     intervalId = setInterval(count, 1000);
-    answered = false;
+    console.log("interval1: " + intervalId);
   };
 
   function count() {
@@ -177,6 +179,9 @@ function timeUpScreen() {
 function questionScreen2() {
   emptyScreen();
   //------------------------------TIMER-----------------------------
+  // timer variables
+  var time = 12;
+  var intervalId;
   // timer count and display function
   function startTimer() {
     clearInterval(intervalId);
@@ -228,16 +233,19 @@ function questionScreen2() {
     }
   });
 }
+
 function correctScreen2() {
   emptyScreen();
   $(".correctScreen").text("Correct q2!");
   setTimeout(questionScreen3, 2000);
 }
+
 function incorrectScreen2() {
   emptyScreen();
   $(".incorrectScreen").text("Incorrect q2!");
   setTimeout(questionScreen3, 2000);
 }
+
 function timeUpScreen2() {
   emptyScreen();
   $(".noAnsScreen").text("No Answer q2!");
@@ -251,12 +259,16 @@ function timeUpScreen2() {
 function questionScreen3() {
   emptyScreen();
   //------------------------------TIMER-----------------------------
+    // timer variables
+    var time = 12;
+    var intervalId;
   // timer count and display function
   function startTimer() {
     clearInterval(intervalId);
     intervalId = setInterval(count, 1000);
     answered = false;
   };
+
   function count() {
     time--;
     $(".timer").text("Time Remaining: " + time);
@@ -266,6 +278,7 @@ function questionScreen3() {
       timeUpScreen3();
     }
   };
+
   function stop() {
     clearInterval(intervalId);
   };
@@ -300,16 +313,19 @@ function questionScreen3() {
     }
   });
 }
+
 function correctScreen3() {
   emptyScreen();
   $(".correctScreen").text("Correct q3!");
   setTimeout(questionScreen4, 2000);
 }
+
 function incorrectScreen3() {
   emptyScreen();
   $(".incorrectScreen").text("Incorrect q3!");
   setTimeout(questionScreen4, 2000);
 }
+
 function timeUpScreen3() {
   emptyScreen();
   $(".noAnsScreen").text("No Answer q3!");
@@ -323,12 +339,16 @@ function timeUpScreen3() {
 function questionScreen4() {
   emptyScreen();
   //------------------------------TIMER-----------------------------
+    // timer variables
+    var time = 12;
+    var intervalId;
   // timer count and display function
   function startTimer() {
     clearInterval(intervalId);
     intervalId = setInterval(count, 1000);
     answered = false;
   };
+
   function count() {
     time--;
     $(".timer").text("Time Remaining: " + time);
@@ -338,6 +358,7 @@ function questionScreen4() {
       timeUpScreen4();
     }
   };
+
   function stop() {
     clearInterval(intervalId);
   };
@@ -372,16 +393,19 @@ function questionScreen4() {
     }
   });
 }
+
 function correctScreen4() {
   emptyScreen();
   $(".correctScreen").text("Correct q4!");
   setTimeout(questionScreen5, 2000);
 }
+
 function incorrectScreen4() {
   emptyScreen();
   $(".incorrectScreen").text("Incorrect q4!");
   setTimeout(questionScreen5, 2000);
 }
+
 function timeUpScreen4() {
   emptyScreen();
   $(".noAnsScreen").text("No Answer q4!");
@@ -396,12 +420,16 @@ function timeUpScreen4() {
 function questionScreen5() {
   emptyScreen();
   //------------------------------TIMER-----------------------------
+    // timer variables
+    var time = 12;
+    var intervalId;
   // timer count and display function
   function startTimer() {
     clearInterval(intervalId);
     intervalId = setInterval(count, 1000);
     answered = false;
   };
+
   function count() {
     time--;
     $(".timer").text("Time Remaining: " + time);
@@ -411,6 +439,7 @@ function questionScreen5() {
       timeUpScreen5();
     }
   };
+
   function stop() {
     clearInterval(intervalId);
   };
@@ -445,16 +474,19 @@ function questionScreen5() {
     }
   });
 }
+
 function correctScreen5() {
   emptyScreen();
   $(".correctScreen").text("Correct q5!");
   setTimeout(endScreen, 2000);
 }
+
 function incorrectScreen5() {
   emptyScreen();
   $(".incorrectScreen").text("Incorrect q5!");
   setTimeout(endScreen, 2000);
 }
+
 function timeUpScreen5() {
   emptyScreen();
   $(".noAnsScreen").text("No Answer q5!");
