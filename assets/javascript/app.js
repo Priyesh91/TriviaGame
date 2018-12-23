@@ -92,8 +92,9 @@ function count() {
   $(".timer").text("Time Remaining: " + time);
   if (time === 0) {
     stop();
+    noAnswer++;
     timeUpScreen();
-    }
+  }
 };
 
 function stop() {
@@ -115,50 +116,71 @@ function blankScreen() {
 };
 //-------------------------blankScreen function--------------------
 
-//-------------------------questionScreen function-------------------------------
+//-------------------------emptyScreen function--------------------
+function emptyScreen() {
+  $(".timer, .question, .correctScreen, .incorrectScreen, .noAnsScreen, .endScreen, .choice1, .choice2, .choice3, .choice4").empty();
+}
+//-------------------------emptyScreen function--------------------
+
+//-------------------------questionScreen function (QUESTION 1)-------------------------------
 function questionScreen() {
-
-
+  //questionnumber declared as object 1 in array to keep same code for subsequent questions just change the question number value code is inefficient but quickest way for me to just copy and paste it for multiple question
+  questionNumber = 0;
   answered = true;
   //write question 1 to the page
   $(".question").html(`<h2>${questionBank[questionNumber].question}<h2>`);
   //write question 1 choices to the page
   $(".choice1").attr({
-    "data-index": 0
+    "data-index": "A"
   }).append(`<h3>${questionBank[questionNumber].choices[0]}`);
   $(".choice2").attr({
-    "data-index": 1
+    "data-index": "B"
   }).append(`<h3>${questionBank[questionNumber].choices[1]}`);
   $(".choice3").attr({
-    "data-index": 2
+    "data-index": "C"
   }).append(`<h3>${questionBank[questionNumber].choices[2]}`);
   $(".choice4").attr({
-    "data-index": 3
+    "data-index": "D"
   }).append(`<h3>${questionBank[questionNumber].choices[3]}`);
-
   //start timer once questions displayed
   startTimer();
-
-
   //click function to stop timer and go to next screen
   $(".choice1, .choice2, .choice3, .choice4").on("click", function () {
     choiceSelected = $(this).data("index");
     clearInterval(intervalId);
-    messageScreen();
+    if (choiceSelected === questionBank[questionNumber].answer) {
+
+      correctScreen();
+      correct++;
+
+
+    } else {
+      incorrect++;
+      incorrectScreen();
+    }
+
   })
+console.log(noAnswer);
+if(noAnswer++){
+  timeUpScreen();
+}
 
 }
 
-function messageScreen() {
-alert("hiiii");
+function correctScreen() {
+  emptyScreen();
+  $(".correctScreen").text("Correct!");
 }
 
+function incorrectScreen() {
+  emptyScreen();
+  $(".incorrectScreen").text("Incorrect!");
+}
 
 function timeUpScreen() {
-  
+  emptyScreen();
+  $(".noAnsScreen").text("No Answer!");
 }
-
-
 
 
 
