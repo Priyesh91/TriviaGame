@@ -243,16 +243,229 @@ function timeUpScreen2() {
   $(".noAnsScreen").text("No Answer q2!");
   setTimeout(questionScreen3, 2000);
 }
+//-------------------------END--questionScreen function (QUESTION 2)--------------------------
+//-------------------------END--questionScreen function (QUESTION 2)--------------------------
+
+//-----------------------START---questionScreen function (QUESTION 3)--------------------------
+//-----------------------START---questionScreen function (QUESTION 3)--------------------------
 function questionScreen3() {
   emptyScreen();
-  alert("q3!")
+  //------------------------------TIMER-----------------------------
+  // timer count and display function
+  function startTimer() {
+    clearInterval(intervalId);
+    intervalId = setInterval(count, 1000);
+    answered = false;
+  };
+  function count() {
+    time--;
+    $(".timer").text("Time Remaining: " + time);
+    if (time === 0) {
+      stop();
+      noAnswer++;
+      timeUpScreen3();
+    }
+  };
+  function stop() {
+    clearInterval(intervalId);
+  };
+  //-------------------------------TIMER----------------------------
+  questionNumber = 2;
+  $(".question").html(`<h2>${questionBank[questionNumber].question}<h2>`);
+  $(".choice1").attr({
+    "data-index": "A"
+  }).append(`<h3>${questionBank[questionNumber].choices[0]}`);
+  $(".choice2").attr({
+    "data-index": "B"
+  }).append(`<h3>${questionBank[questionNumber].choices[1]}`);
+  $(".choice3").attr({
+    "data-index": "C"
+  }).append(`<h3>${questionBank[questionNumber].choices[2]}`);
+  $(".choice4").attr({
+    "data-index": "D"
+  }).append(`<h3>${questionBank[questionNumber].choices[3]}`);
+  //start timer once questions displayed
+  startTimer();
+  //click function to stop timer and go to next screen
+  $(".choice1, .choice2, .choice3, .choice4").on("click", function () {
+    choiceSelected3 = $(this).data("index");
+    clearInterval(intervalId);
+    answered = true;
+    if (choiceSelected3 === questionBank[questionNumber].answer) {
+      correct++;
+      correctScreen3();
+    } else {
+      incorrect++;
+      incorrectScreen3();
+    }
+  });
 }
+function correctScreen3() {
+  emptyScreen();
+  $(".correctScreen").text("Correct q3!");
+  setTimeout(questionScreen4, 2000);
+}
+function incorrectScreen3() {
+  emptyScreen();
+  $(".incorrectScreen").text("Incorrect q3!");
+  setTimeout(questionScreen4, 2000);
+}
+function timeUpScreen3() {
+  emptyScreen();
+  $(".noAnsScreen").text("No Answer q3!");
+  setTimeout(questionScreen4, 2000);
+}
+//-------------------------END--questionScreen function (QUESTION 3)--------------------------
+//-------------------------END--questionScreen function (QUESTION 3)--------------------------
+
+//-----------------------START---questionScreen function (QUESTION 4)--------------------------
+//-----------------------START---questionScreen function (QUESTION 4)--------------------------
+function questionScreen4() {
+  emptyScreen();
+  //------------------------------TIMER-----------------------------
+  // timer count and display function
+  function startTimer() {
+    clearInterval(intervalId);
+    intervalId = setInterval(count, 1000);
+    answered = false;
+  };
+  function count() {
+    time--;
+    $(".timer").text("Time Remaining: " + time);
+    if (time === 0) {
+      stop();
+      noAnswer++;
+      timeUpScreen4();
+    }
+  };
+  function stop() {
+    clearInterval(intervalId);
+  };
+  //-------------------------------TIMER----------------------------
+  questionNumber = 3;
+  $(".question").html(`<h2>${questionBank[questionNumber].question}<h2>`);
+  $(".choice1").attr({
+    "data-index": "A"
+  }).append(`<h3>${questionBank[questionNumber].choices[0]}`);
+  $(".choice2").attr({
+    "data-index": "B"
+  }).append(`<h3>${questionBank[questionNumber].choices[1]}`);
+  $(".choice3").attr({
+    "data-index": "C"
+  }).append(`<h3>${questionBank[questionNumber].choices[2]}`);
+  $(".choice4").attr({
+    "data-index": "D"
+  }).append(`<h3>${questionBank[questionNumber].choices[3]}`);
+  //start timer once questions displayed
+  startTimer();
+  //click function to stop timer and go to next screen
+  $(".choice1, .choice2, .choice3, .choice4").on("click", function () {
+    choiceSelected4 = $(this).data("index");
+    clearInterval(intervalId);
+    answered = true;
+    if (choiceSelected4 === questionBank[questionNumber].answer) {
+      correct++;
+      correctScreen4();
+    } else {
+      incorrect++;
+      incorrectScreen4();
+    }
+  });
+}
+function correctScreen4() {
+  emptyScreen();
+  $(".correctScreen").text("Correct q4!");
+  setTimeout(questionScreen5, 2000);
+}
+function incorrectScreen4() {
+  emptyScreen();
+  $(".incorrectScreen").text("Incorrect q4!");
+  setTimeout(questionScreen5, 2000);
+}
+function timeUpScreen4() {
+  emptyScreen();
+  $(".noAnsScreen").text("No Answer q4!");
+  setTimeout(questionScreen5, 2000);
+}
+//-------------------------END--questionScreen function (QUESTION 4)--------------------------
+//-------------------------END--questionScreen function (QUESTION 4)--------------------------
 
 
-
-
-
-
+//-----------------------START---questionScreen function (QUESTION 5)--------------------------
+//-----------------------START---questionScreen function (QUESTION 5)--------------------------
+function questionScreen5() {
+  emptyScreen();
+  //------------------------------TIMER-----------------------------
+  // timer count and display function
+  function startTimer() {
+    clearInterval(intervalId);
+    intervalId = setInterval(count, 1000);
+    answered = false;
+  };
+  function count() {
+    time--;
+    $(".timer").text("Time Remaining: " + time);
+    if (time === 0) {
+      stop();
+      noAnswer++;
+      timeUpScreen5();
+    }
+  };
+  function stop() {
+    clearInterval(intervalId);
+  };
+  //-------------------------------TIMER----------------------------
+  questionNumber = 4;
+  $(".question").html(`<h2>${questionBank[questionNumber].question}<h2>`);
+  $(".choice1").attr({
+    "data-index": "A"
+  }).append(`<h3>${questionBank[questionNumber].choices[0]}`);
+  $(".choice2").attr({
+    "data-index": "B"
+  }).append(`<h3>${questionBank[questionNumber].choices[1]}`);
+  $(".choice3").attr({
+    "data-index": "C"
+  }).append(`<h3>${questionBank[questionNumber].choices[2]}`);
+  $(".choice4").attr({
+    "data-index": "D"
+  }).append(`<h3>${questionBank[questionNumber].choices[3]}`);
+  //start timer once questions displayed
+  startTimer();
+  //click function to stop timer and go to next screen
+  $(".choice1, .choice2, .choice3, .choice4").on("click", function () {
+    choiceSelected5 = $(this).data("index");
+    clearInterval(intervalId);
+    answered = true;
+    if (choiceSelected5 === questionBank[questionNumber].answer) {
+      correct++;
+      correctScreen5();
+    } else {
+      incorrect++;
+      incorrectScreen5();
+    }
+  });
+}
+function correctScreen5() {
+  emptyScreen();
+  $(".correctScreen").text("Correct q5!");
+  setTimeout(endScreen, 2000);
+}
+function incorrectScreen5() {
+  emptyScreen();
+  $(".incorrectScreen").text("Incorrect q5!");
+  setTimeout(endScreen, 2000);
+}
+function timeUpScreen5() {
+  emptyScreen();
+  $(".noAnsScreen").text("No Answer q5!");
+  setTimeout(endScreen, 2000);
+}
+//-------------------------END--questionScreen function (QUESTION 5)--------------------------
+//-------------------------END--questionScreen function (QUESTION 5)--------------------------
+function endScreen() {
+  emptyScreen();
+  alert("DONE BABY!")
+}
 
 
 
