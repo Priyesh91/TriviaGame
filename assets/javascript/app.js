@@ -10,7 +10,7 @@ var answered;
 var correctAns;
 var incorrectAns;
 var noAns;
-var end = 3334;
+var endRandom = 0;
 
 //Question bank array with another array in it with answer 
 //-->Master array{Object}
@@ -58,7 +58,6 @@ var messageArray = {
 
 $(document).ready(function () {
 
-
   //-----------------------------Start-Button-----------------------
   //Startbutton on screen that will be hidden once triggered and start the questionScreen1
   $("#startTrivia").on("click", function () {
@@ -69,11 +68,8 @@ $(document).ready(function () {
 
   //-----------------------------Reset-Trivia-Button----------------
   //added button to show at the end of the game
-  $("#resetTrivia").on("click", function () {
-    $(this).hide();
-    blankScreen();
-  });
-  //-----------------------------Reset-Trivia-Button----------------
+  $("#resetTrivia").hide();
+      //-----------------------------Reset-Trivia-Button----------------
 
   //-------------------------blankScreen function-------------------
   //Clear stats and variables
@@ -500,7 +496,6 @@ $(document).ready(function () {
   function triviaEnded() {
     emptyScreen();
     $(".timer").text("Trivia Completed Good Job!");
-    end + 7;
     endScreen();
 
     //------------------------------TIMER-----------------------------
@@ -526,17 +521,17 @@ $(document).ready(function () {
     startTimer();
     //-------------------------------TIMER----------------------------
   }
-  if (end > 3336) {
-    endscreen();
-  }
+  });
   //--------------------------END SCREEN---------------------------------------------------------
   function endScreen() {
-        emptyScreen();
+    $(".timer, .question, .correctScreen, .incorrectScreen, .noAnsScreen, .endScreen, .choice1, .choice2, .choice3, .choice4").empty();
+    
     $(".correct").text(`Correct: ${correct}/5`);
     $(".incorrect").text(`Incorrect: ${incorrect}/5`);
     $(".noAnswer").text(`Unanswered: ${noAnswer}/5`);
     //-----------------------------Reset-Trivia-Button----------------
     //added button to show at the end of the game
+    $("#resetTrivia").show();
     $("#resetTrivia").on("click", function () {
       $(this).hide();
       blankScreen();
@@ -544,7 +539,7 @@ $(document).ready(function () {
     //-----------------------------Reset-Trivia-Button----------------
   }
 
-});
+
 
 
 

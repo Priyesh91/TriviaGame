@@ -1,4 +1,37 @@
-.test {
-  color: red;
-  font-size: 50px;
+
+
+.topbanner {
+  background-image: url(./../images/Banner.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 1%;
+  padding-top: 7%;
+  margin-bottom: 5%;
+}
+
+/* html{
+  background-image: url(./../images/mainbody1.jpg);
+} */
+.title {
+  opacity: 0.6;
+  /* background-color: red; */
+  font-family: Impact, Charcoal, sans-serif;
+  font-size: 62px;
+  font-weight: bold;
+  width: auto;
+  border-style: solid;
+  border-width: 15px;
+  line-height: 1;
+  background-color: red;
+  color: white;
+}
+
+body {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  background-image: url("./../images/mainbody1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
