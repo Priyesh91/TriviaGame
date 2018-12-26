@@ -56,7 +56,9 @@ body {
 }
 
 .timer {
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  height: 25px;
 }
 
 .question {
@@ -95,4 +97,10 @@ body {
   background: rgb(255, 6, 6);
   font-size:22px;
   font-weight: bold;
+}
+
+.correctScreen, .incorrectScreen, .noAnsScreen {
+  font-size: 60px;
+  font-weight: bold;
+  color: White;
 }

@@ -69,7 +69,7 @@ $(document).ready(function () {
   //-----------------------------Reset-Trivia-Button----------------
   //added button to show at the end of the game
   $("#resetTrivia").hide();
-      //-----------------------------Reset-Trivia-Button----------------
+  //-----------------------------Reset-Trivia-Button----------------
 
   //-------------------------blankScreen function-------------------
   //Clear stats and variables
@@ -87,7 +87,7 @@ $(document).ready(function () {
 
   //-------------------------emptyScreen function--------------------
   function emptyScreen() {
-    $(".timer, .question, .correctScreen, .incorrectScreen, .noAnsScreen, .endScreen, .choice1, .choice2, .choice3, .choice4").empty();
+    $(".timer, .question, .correctScreen, .incorrectScreen, .noAnsScreen, .endScreen, .choice1, .choice2, .choice3, .choice4, .cgif, .icgif, .nagif").empty();
   }
   //-------------------------emptyScreen function--------------------
 
@@ -155,20 +155,23 @@ $(document).ready(function () {
 
   function correctScreen() {
     emptyScreen();
-    $(".correctScreen").text("Correct q1!");
-    setTimeout(questionScreen2, 2000);
+    $(".correctScreen").text("Correct!");
+    $(".cgif").html('<iframe src="https://giphy.com/embed/pNTxtmpDVOLToFpoDp"></iframe>');
+    setTimeout(questionScreen2, 3000);
   }
 
   function incorrectScreen() {
     emptyScreen();
-    $(".incorrectScreen").text("Incorrect q1!");
-    setTimeout(questionScreen2, 2000);
+    $(".incorrectScreen").text("Incorrect!");
+    $(".icgif").html('<iframe src="https://giphy.com/embed/12HufQyjgtDttK"></iframe>');
+    setTimeout(questionScreen2, 3000);
   }
 
   function timeUpScreen() {
     emptyScreen();
-    $(".noAnsScreen").text("No Answer q1!");
-    setTimeout(questionScreen2, 2000);
+    $(".noAnsScreen").text("No Answer!");
+    $(".nagif").html('<iframe src="https://giphy.com/embed/3og0IM1SoMQ3oF7pmM"</iframe>');
+    setTimeout(questionScreen2, 8000);
   }
   //-------------------------END--questionScreen function (QUESTION 1)--------------------------
   //-------------------------END--questionScreen function (QUESTION 1)--------------------------
@@ -235,20 +238,23 @@ $(document).ready(function () {
 
   function correctScreen2() {
     emptyScreen();
-    $(".correctScreen").text("Correct q2!");
-    setTimeout(questionScreen3, 2000);
+    $(".correctScreen").text("Correct!");
+    $(".cgif").html('<iframe src="https://giphy.com/embed/8FV8DMUqB6oUOsDkQd"></iframe>');
+    setTimeout(questionScreen3, 4000);
   }
 
   function incorrectScreen2() {
     emptyScreen();
-    $(".incorrectScreen").text("Incorrect q2!");
-    setTimeout(questionScreen3, 2000);
+    $(".incorrectScreen").text("Incorrect!");
+    $(".icgif").html('<iframe src="https://giphy.com/embed/26AHKGvq2zAJmfDj2"></iframe>');
+    setTimeout(questionScreen3, 5000);
   }
 
   function timeUpScreen2() {
     emptyScreen();
-    $(".noAnsScreen").text("No Answer q2!");
-    setTimeout(questionScreen3, 2000);
+    $(".noAnsScreen").text("No Answer!");
+    $(".nagif").html('<iframe src="https://giphy.com/embed/3og0IM1SoMQ3oF7pmM"</iframe>');
+    setTimeout(questionScreen3, 8000);
   }
   //-------------------------END--questionScreen function (QUESTION 2)--------------------------
   //-------------------------END--questionScreen function (QUESTION 2)--------------------------
@@ -315,20 +321,23 @@ $(document).ready(function () {
 
   function correctScreen3() {
     emptyScreen();
-    $(".correctScreen").text("Correct q3!");
-    setTimeout(questionScreen4, 2000);
+    $(".correctScreen").text("Correct!");
+    $(".cgif").html('<iframe src="https://giphy.com/embed/VFB3cJJne7b5m"></iframe>');
+    setTimeout(questionScreen4, 4000);
   }
 
   function incorrectScreen3() {
     emptyScreen();
-    $(".incorrectScreen").text("Incorrect q3!");
-    setTimeout(questionScreen4, 2000);
+    $(".incorrectScreen").text("Incorrect!");
+    $(".icgif").html('<iframe src="https://giphy.com/embed/qmfpjpAT2fJRK"></iframe>');
+    setTimeout(questionScreen4, 4000);
   }
 
   function timeUpScreen3() {
     emptyScreen();
-    $(".noAnsScreen").text("No Answer q3!");
-    setTimeout(questionScreen4, 2000);
+    $(".noAnsScreen").text("No Answer!");
+    $(".nagif").html('<iframe src="https://giphy.com/embed/3og0IM1SoMQ3oF7pmM"</iframe>');
+    setTimeout(questionScreen4, 8000);
   }
   //-------------------------END--questionScreen function (QUESTION 3)--------------------------
   //-------------------------END--questionScreen function (QUESTION 3)--------------------------
@@ -395,20 +404,23 @@ $(document).ready(function () {
 
   function correctScreen4() {
     emptyScreen();
-    $(".correctScreen").text("Correct q4!");
-    setTimeout(questionScreen5, 2000);
+    $(".correctScreen").text("Correct!");
+    $(".cgif").html('<iframe src="https://giphy.com/embed/NksASCr1ru4LK"></iframe>');
+    setTimeout(questionScreen5, 4000);
   }
 
   function incorrectScreen4() {
     emptyScreen();
-    $(".incorrectScreen").text("Incorrect q4!");
-    setTimeout(questionScreen5, 2000);
+    $(".incorrectScreen").text("Incorrect!");
+    $(".icgif").html('<iframe src="https://giphy.com/embed/NksASCr1ru4LK"></iframe>');
+    setTimeout(questionScreen5, 4000);
   }
 
   function timeUpScreen4() {
     emptyScreen();
-    $(".noAnsScreen").text("No Answer q4!");
-    setTimeout(questionScreen5, 2000);
+    $(".noAnsScreen").text("No Answer!");
+    $(".nagif").html('<iframe src="https://giphy.com/embed/3og0IM1SoMQ3oF7pmM"</iframe>');
+    setTimeout(questionScreen5, 8000);
   }
   //-------------------------END--questionScreen function (QUESTION 4)--------------------------
   //-------------------------END--questionScreen function (QUESTION 4)--------------------------
@@ -476,20 +488,23 @@ $(document).ready(function () {
 
   function correctScreen5() {
     emptyScreen();
-    $(".correctScreen").text("Correct q5!");
-    setTimeout(triviaEnded, 2000);
+    $(".correctScreen").text("Correct!");
+    $(".cgif").html('<iframe src="">https://giphy.com/embed/eenzqB2MsGKbK</iframe>');
+    setTimeout(triviaEnded, 4000);
   }
 
   function incorrectScreen5() {
     emptyScreen();
-    $(".incorrectScreen").text("Incorrect q5!");
-    setTimeout(triviaEnded, 2000);
+    $(".incorrectScreen").text("Incorrect!");
+    $(".icgif").html('<iframe src="https://giphy.com/embed/k9kKWKaUEDBM4"></iframe>');
+    setTimeout(triviaEnded, 4000);
   }
 
   function timeUpScreen5() {
     emptyScreen();
-    $(".noAnsScreen").text("No Answer q5!");
-    setTimeout(triviaEnded, 2000);
+    $(".noAnsScreen").text("No Answer!");
+    $(".nagif").html('<iframe src="https://giphy.com/embed/3og0IM1SoMQ3oF7pmM"</iframe>');
+    setTimeout(triviaEnded, 8000);
   }
   //-------------------------END--questionScreen function (QUESTION 5)--------------------------
   //-------------------------END--questionScreen function (QUESTION 5)--------------------------
@@ -521,23 +536,23 @@ $(document).ready(function () {
     startTimer();
     //-------------------------------TIMER----------------------------
   }
+});
+//--------------------------END SCREEN---------------------------------------------------------
+function endScreen() {
+  $(".timer, .question, .correctScreen, .incorrectScreen, .noAnsScreen, .endScreen, .choice1, .choice2, .choice3, .choice4").empty();
+
+  $(".correct").text(`Correct: ${correct}/5`);
+  $(".incorrect").text(`Incorrect: ${incorrect}/5`);
+  $(".noAnswer").text(`Unanswered: ${noAnswer}/5`);
+  //-----------------------------Reset-Trivia-Button----------------
+  //added button to show at the end of the game
+  $("#resetTrivia").show();
+  $("#resetTrivia").on("click", function () {
+    $(this).hide();
+    blankScreen();
   });
-  //--------------------------END SCREEN---------------------------------------------------------
-  function endScreen() {
-    $(".timer, .question, .correctScreen, .incorrectScreen, .noAnsScreen, .endScreen, .choice1, .choice2, .choice3, .choice4").empty();
-    
-    $(".correct").text(`Correct: ${correct}/5`);
-    $(".incorrect").text(`Incorrect: ${incorrect}/5`);
-    $(".noAnswer").text(`Unanswered: ${noAnswer}/5`);
-    //-----------------------------Reset-Trivia-Button----------------
-    //added button to show at the end of the game
-    $("#resetTrivia").show();
-    $("#resetTrivia").on("click", function () {
-      $(this).hide();
-      blankScreen();
-    });
-    //-----------------------------Reset-Trivia-Button----------------
-  }
+  //-----------------------------Reset-Trivia-Button----------------
+}
 
 
 
