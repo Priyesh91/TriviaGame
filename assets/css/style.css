@@ -58,13 +58,41 @@ body {
 .timer {
   font-size: 20px;
 }
+
 .question {
-color: white;
-font-size: 20px;
-font-weight: bold;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
 }
 
-.choice1, .choice2, .choice3, .choice4 {
-  color:white;
+.choice1,
+.choice2,
+.choice3,
+.choice4 {
+  color: white;
   font-size: 18px;
+}
+
+.choice1:hover {
+  background: rgb(255, 6, 6);
+  font-size:22px;
+  font-weight: bold;
+}
+
+.choice2:hover {
+  background: rgb(255, 6, 6);
+  font-size:22px;
+  font-weight: bold;
+}
+
+.choice3:hover {
+  background: rgb(255, 6, 6);
+  font-size:22px;
+  font-weight: bold;
+}
+
+.choice4:hover {
+  background: rgb(255, 6, 6);
+  font-size:22px;
+  font-weight: bold;
 }

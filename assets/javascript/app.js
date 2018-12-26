@@ -34,14 +34,14 @@ var questionBank = [{
     choices: ["2008", "2004", "2012", "2006"]
   },
   {
-    questionNumber: "Which Infinity Stone does Vision have embedded into his forehead?",
-    question: "question 4",
+    questionNumber: "4",
+    question: "Which Infinity Stone does Vision have embedded into his forehead?",
     answer: "The Mind Stone",
     choices: ["The Time Stone", "The Soul Stone", "The Mind Stone", "The Space Stone"]
   },
   {
-    questionNumber: "Which Avenger does Thor team up with in Thor: Ragnarok?",
-    question: "question 5",
+    questionNumber: "5",
+    question: "Which Avenger does Thor team up with in Thor: Ragnarok?",
     answer: "Hulk",
     choices: ["Ant Man", "Iron Man", "Hawkeye", "Hulk"]
   },
