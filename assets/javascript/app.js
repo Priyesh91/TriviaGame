@@ -305,32 +305,34 @@ $(document).ready(function () {
     //start timer once questions displayed
     startTimer();
     //click function to stop timer and go to next screen
+    console.log(questionBank[questionNumber].answer);
     $(".choice1, .choice2, .choice3, .choice4").on("click", function () {
       choiceSelected3 = $(this).data("index");
       clearInterval(intervalId);
       answered = true;
+      console.log(questionBank[questionNumber].answer);
       if (choiceSelected3 === questionBank[questionNumber].answer) {
         correct++;
         correctScreen3();
-      } else {
+              } else {
         incorrect++;
         incorrectScreen3();
       }
     });
   }
-
+  
   function correctScreen3() {
     emptyScreen();
     $(".correctScreen").text("Correct!");
     $(".cgif").html('<iframe src="https://giphy.com/embed/VFB3cJJne7b5m"></iframe>');
-    setTimeout(questionScreen4, 4000);
+    setTimeout(questionScreen4, 5000);
   }
 
   function incorrectScreen3() {
     emptyScreen();
     $(".incorrectScreen").text("Incorrect!");
     $(".icgif").html('<iframe src="https://giphy.com/embed/qmfpjpAT2fJRK"></iframe>');
-    setTimeout(questionScreen4, 4000);
+    setTimeout(questionScreen4, 5000);
   }
 
   function timeUpScreen3() {
