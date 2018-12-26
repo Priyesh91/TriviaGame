@@ -17,37 +17,37 @@ var endRandom = 0;
 //---------------->question, answer, choices-->[array]
 var questionBank = [{
     questionNumber: "1",
-    question: "question 1",
-    answer: "A",
-    choices: ["A", "B", "C", "D"]
+    question: "What is the name of the fictional reclusive African republic that T’challa, a.k.a Black Panther, hails from?",
+    answer: "Wakanda",
+    choices: ["Wakanda", "Agamotto", "Sakovia", "Terra"]
   },
   {
     questionNumber: "2",
-    question: "question 2",
-    answer: "B",
-    choices: ["A", "B", "C", "D"]
+    question: "Dr. Stephen Strange protects the New York Sanctum. Where are the other sanctums located?",
+    answer: "London & Hong Kong",
+    choices: ["Tokyo & Paris", "London & Hong Kong", "London & Beijing", "Rome & Kathmandu"]
   },
   {
     questionNumber: "3",
-    question: "question 3",
-    answer: "A",
-    choices: ["A", "B", "C", "D"]
+    question: "What year was the first Iron Man movie released, kicking off the Marvel Cinematic Universe?",
+    answer: "2008",
+    choices: ["2008", "2004", "2012", "2006"]
   },
   {
-    questionNumber: "4",
+    questionNumber: "Which Infinity Stone does Vision have embedded into his forehead?",
     question: "question 4",
-    answer: "C",
-    choices: ["A", "B", "C", "D"]
+    answer: "The Mind Stone",
+    choices: ["The Time Stone", "The Soul Stone", "The Mind Stone", "The Space Stone"]
   },
   {
-    questionNumber: "5",
+    questionNumber: "Which Avenger does Thor team up with in Thor: Ragnarok?",
     question: "question 5",
-    answer: "D",
-    choices: ["A", "B", "C", "D"]
+    answer: "Hulk",
+    choices: ["Ant Man", "Iron Man", "Hawkeye", "Hulk"]
   },
 ];
 console.log(questionBank[0].question);
-console.log(questionBank[0].choices[2]);
+console.log(questionBank[0].choices[0]);
 //messageArray
 var messageArray = {
   correct: "Correct!",
@@ -122,20 +122,20 @@ $(document).ready(function () {
     //questionnumber declared as object 1 in array to keep same code for subsequent questions just change the question number value code is inefficient but quickest way for me to just copy and paste it for multiple question
     questionNumber = 0;
     //write question 1 to the page
-    $(".question").html(`<h2>${questionBank[questionNumber].question}<h2>`);
+    $(".question").html(questionBank[questionNumber].question);
     //write question 1 choices to the page
     $(".choice1").attr({
-      "data-index": "A"
-    }).append(`<h3>${questionBank[questionNumber].choices[0]}`);
+      "data-index": "Wakanda"
+    }).append(questionBank[questionNumber].choices[0]);
     $(".choice2").attr({
       "data-index": "B"
-    }).append(`<h3>${questionBank[questionNumber].choices[1]}`);
+    }).append(questionBank[questionNumber].choices[1]);
     $(".choice3").attr({
       "data-index": "C"
-    }).append(`<h3>${questionBank[questionNumber].choices[2]}`);
+    }).append(questionBank[questionNumber].choices[2]);
     $(".choice4").attr({
       "data-index": "D"
-    }).append(`<h3>${questionBank[questionNumber].choices[3]}`);
+    }).append(questionBank[questionNumber].choices[3]);
     //start timer once questions displayed
     startTimer();
     //click function to stop timer and go to next screen
@@ -203,19 +203,19 @@ $(document).ready(function () {
     };
     //-------------------------------TIMER----------------------------
     questionNumber = 1;
-    $(".question").html(`<h2>${questionBank[questionNumber].question}<h2>`);
+    $(".question").html(questionBank[questionNumber].question);
     $(".choice1").attr({
       "data-index": "A"
-    }).append(`<h3>${questionBank[questionNumber].choices[0]}`);
+    }).append(questionBank[questionNumber].choices[0]);
     $(".choice2").attr({
-      "data-index": "B"
-    }).append(`<h3>${questionBank[questionNumber].choices[1]}`);
+      "data-index": "London & Hong Kong"
+    }).append(questionBank[questionNumber].choices[1]);
     $(".choice3").attr({
       "data-index": "C"
-    }).append(`<h3>${questionBank[questionNumber].choices[2]}`);
+    }).append(questionBank[questionNumber].choices[2]);
     $(".choice4").attr({
       "data-index": "D"
-    }).append(`<h3>${questionBank[questionNumber].choices[3]}`);
+    }).append(questionBank[questionNumber].choices[3]);
     //start timer once questions displayed
     startTimer();
     //click function to stop timer and go to next screen
@@ -283,19 +283,19 @@ $(document).ready(function () {
     };
     //-------------------------------TIMER----------------------------
     questionNumber = 2;
-    $(".question").html(`<h2>${questionBank[questionNumber].question}<h2>`);
+    $(".question").html(questionBank[questionNumber].question);
     $(".choice1").attr({
-      "data-index": "A"
-    }).append(`<h3>${questionBank[questionNumber].choices[0]}`);
+      "data-index": "2008"
+    }).append(questionBank[questionNumber].choices[0]);
     $(".choice2").attr({
       "data-index": "B"
-    }).append(`<h3>${questionBank[questionNumber].choices[1]}`);
+    }).append(questionBank[questionNumber].choices[1]);
     $(".choice3").attr({
       "data-index": "C"
-    }).append(`<h3>${questionBank[questionNumber].choices[2]}`);
+    }).append(questionBank[questionNumber].choices[2]);
     $(".choice4").attr({
       "data-index": "D"
-    }).append(`<h3>${questionBank[questionNumber].choices[3]}`);
+    }).append(questionBank[questionNumber].choices[3]);
     //start timer once questions displayed
     startTimer();
     //click function to stop timer and go to next screen
@@ -363,19 +363,19 @@ $(document).ready(function () {
     };
     //-------------------------------TIMER----------------------------
     questionNumber = 3;
-    $(".question").html(`<h2>${questionBank[questionNumber].question}<h2>`);
+    $(".question").html(questionBank[questionNumber].question);
     $(".choice1").attr({
       "data-index": "A"
-    }).append(`<h3>${questionBank[questionNumber].choices[0]}`);
+    }).append(questionBank[questionNumber].choices[0]);
     $(".choice2").attr({
       "data-index": "B"
-    }).append(`<h3>${questionBank[questionNumber].choices[1]}`);
+    }).append(questionBank[questionNumber].choices[1]);
     $(".choice3").attr({
-      "data-index": "C"
-    }).append(`<h3>${questionBank[questionNumber].choices[2]}`);
+      "data-index": "The Mind Stone"
+    }).append(questionBank[questionNumber].choices[2]);
     $(".choice4").attr({
       "data-index": "D"
-    }).append(`<h3>${questionBank[questionNumber].choices[3]}`);
+    }).append(questionBank[questionNumber].choices[3]);
     //start timer once questions displayed
     startTimer();
     //click function to stop timer and go to next screen
@@ -444,19 +444,19 @@ $(document).ready(function () {
     };
     //-------------------------------TIMER----------------------------
     questionNumber = 4;
-    $(".question").html(`<h2>${questionBank[questionNumber].question}<h2>`);
+    $(".question").html(questionBank[questionNumber].question);
     $(".choice1").attr({
       "data-index": "A"
-    }).append(`<h3>${questionBank[questionNumber].choices[0]}`);
+    }).append(questionBank[questionNumber].choices[0]);
     $(".choice2").attr({
       "data-index": "B"
-    }).append(`<h3>${questionBank[questionNumber].choices[1]}`);
+    }).append(questionBank[questionNumber].choices[1]);
     $(".choice3").attr({
       "data-index": "C"
-    }).append(`<h3>${questionBank[questionNumber].choices[2]}`);
+    }).append(questionBank[questionNumber].choices[2]);
     $(".choice4").attr({
-      "data-index": "D"
-    }).append(`<h3>${questionBank[questionNumber].choices[3]}`);
+      "data-index": "Hulk"
+    }).append(questionBank[questionNumber].choices[3]);
     //start timer once questions displayed
     startTimer();
     //click function to stop timer and go to next screen

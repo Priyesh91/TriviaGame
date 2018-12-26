@@ -12,48 +12,47 @@
 </head>
 
 <body class="text-center">
-    <nav class="navbar navbar-light bg-light topbanner">
+  <nav class="navbar navbar-light bg-light topbanner">
     <div class="container title text-center fixed-px-0">MARVEL <br> TRIVIA GAME</div>
   </nav>
 
 
 
-  
-  <div class="mainbox border">
-    <div class="container border">
-      <h2>TRIVIA TRIVIA GAME TITLE</h2>
+
+  <div class="mainbox text-white">
+    <div class="container">
+
 
       <!-- Start screen with only start button -->
-      <button id="startTrivia">Start Triva Quiz!</button>
+      <div id="startTrivia">Click To Start Triva Quiz!</div>
 
-      <!-- question screen -->
-      <div class="container questionScreen">
-        <div class="container timer"></div>
-        <div class="container question"></div>
+      <div class="container masterScreen">
+        <!-- question screen -->
+        <div class="container questionScreen">
+          <div class="container timer"></div>
+          <div class="container question"></div>
+          <div class="choice1"></div>
+          <div class="choice2"></div>
+          <div class="choice3"></div>
+          <div class="choice4"></div>
+        </div>
+        <!-- message screen for correct/incorrect/noanswer -->
+        <div class="container messageScreen">
+          <div class="container correctScreen"></div>
+          <div class="container incorrectScreen"></div>
+          <div class="container noAnsScreen"></div>
+        </div>
 
-        <div class="choice1"></div>
-        <div class="choice2"></div>
-        <div class="choice3"></div>
-        <div class="choice4"></div>
-
+        <!-- endscreen for score -->
+        <div class="container endScreen">
+          <div class="container correct"></div>
+          <div class="container incorrect"></div>
+          <div class="container noAnswer"></div>
+        </div>
+        <button id="resetTrivia">Reset Trivia Quiz</button>
       </div>
-      <!-- message screen for correct/incorrect/noanswer -->
-      <div class="container messageScreen">
-        <div class="container correctScreen"></div>
-        <div class="container incorrectScreen"></div>
-        <div class="container noAnsScreen"></div>
-      </div>
 
-      <!-- endscreen for score -->
-      <div class="container endScreen">
-        <div class="container correct"></div>
-        <div class="container incorrect"></div>
-        <div class="container noAnswer"></div>
-      </div>
-      <button id="resetTrivia">Reset Trivia Quiz</button>
     </div>
-
-
 
   </div>
 
