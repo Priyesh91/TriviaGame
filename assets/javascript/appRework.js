@@ -8,13 +8,14 @@ var correctAns;
 var incorrectAns;
 var timer;
 var choiceSelected;
-var time = 12
+var time = 12;
+var intervalId;
 
 
 var questionBank = [
   "1) What is the name of the fictional reclusive African republic that T’challa, a.k.a Black Panther, hails from?",
-  "2)Dr. Stephen Strange protects the New York Sanctum. Where are the other sanctums located?", 
-  "3)What year was the first Iron Man movie released, kicking off the Marvel Cinematic Universe?", 
+  "2)Dr. Stephen Strange protects the New York Sanctum. Where are the other sanctums located?",
+  "3)What year was the first Iron Man movie released, kicking off the Marvel Cinematic Universe?",
   "4)Which Infinity Stone does Vision have embedded into his forehead?",
   "5)Which Avenger does Thor team up with in Thor: Ragnarok?"
 ];
@@ -36,17 +37,71 @@ var answerBank = [
 ];
 
 //function to create start button start and hide endtriva button.
-function startButton(){
+function startButton() {
   $("#startTrivia").on("click", function () {
     $(this).hide();
     blankScreen();
   });
+  //hide endtriva button
   $("#resetTrivia").hide();
-}
+};
 //function to show endtrivia button
-function endButton(){
+function endButton() {
   $("#resetTrivia").show();
+};
+//what happens when screen starts
+$(document).ready(function () {
+  startButton();
+});
+//empty divs in html file
+function emptyScreen() {
+  $(".timer, .question, .correctScreen, .incorrectScreen, .noAnsScreen, .endScreen, .choice1, .choice2, .choice3, .choice4, .cgif, .icgif, .nagif").empty();
 }
 
+//correct answerscreen
+function correctAnswerScreen() {
+  correct++;
+  emptyScreen();
+  $(".correctScreen").text("Correct!");
+  $(".cgif").html("gif");
+  setTimeout(wait, 5000);
+};
 
 
+//incorrect answerscreen
+function incorrectAnswerScreen() {
+  incorrect++;
+  emptyScreen();
+  $(".incorrectScreen").text("Incorrect!");
+  $(".icgif").html("gif");
+  setTimeout(wait, 5000);
+};
+
+//no answerscreen
+function noAnswerScreen() {
+  noAnswer++;
+  emptyScreen();
+  $(".noAnsScreen").text("No Answer!");
+  $(".nagif").html("gif");
+  setTimeout(wait, 7000);
+};
+
+//------------------------------TIMER-----------------------------
+function startTimer() {
+  intervalId = setInterval(count, 1000);
+  function count() {
+    if (counter === 0) {
+      clearInterval(intervalId);
+      noAnswerScreen();
+    }
+    if (counter > 0) {
+      time--;
+    }
+    $(".timer").text("Time Remaining: " + time);
+  }
+};
+//------------------------------TIMER-----------------------------
+//function to increase question number
+function questionTracker() {
+  if (question)
+}
