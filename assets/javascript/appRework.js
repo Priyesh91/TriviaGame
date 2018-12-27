@@ -8,7 +8,7 @@ var correctAns;
 var incorrectAns;
 var timer;
 var choiceSelected;
-var time = 12;
+var time = 15;
 var intervalId;
 
 
@@ -41,7 +41,7 @@ function startButton() {
   $("#startTrivia").on("click", function () {
     $(this).hide();
     emptyScreen();
-    generateQuestionScreen();
+    questionScreen();
     startTimer();
   });
   //hide endtriva button
@@ -60,30 +60,28 @@ function emptyScreen() {
   $(".timer, .question, .correctScreen, .incorrectScreen, .noAnsScreen, .endScreen, .choice1, .choice2, .choice3, .choice4, .cgif, .icgif, .nagif").empty();
 }
 
-function generateQuestionScreen(event) {
+function questionScreen(event) {
   emptyScreen();
-  $(".question").html(questionBank[questionNumber]);
-
+   $(".question").html(questionBank[questionNumber]);
   $(".choice1").append(choiceBank[questionNumber][0]);
   $(".choice2").append(choiceBank[questionNumber][1]);
   $(".choice3").append(choiceBank[questionNumber][2]);
   $(".choice4").append(choiceBank[questionNumber][3]);
 
- 
+
   //click function to stop timer and go to next screen
   $(".choice1, .choice2, .choice3, .choice4").on("click", function () {
     choiceSelected = $(this).text();
-    clearInterval(intervalId);
+    console.log(choiceSelected);
     if (choiceSelected === answerBank[questionNumber]) {
+      clearInterval(intervalId);
       correctAnswerScreen();
     } else {
+      clearInterval(intervalId);
       incorrectAnswerScreen();
     }
   });
 }
-
-
-
 
 //correct answerscreen
 function correctAnswerScreen() {
@@ -91,7 +89,7 @@ function correctAnswerScreen() {
   emptyScreen();
   $(".correctScreen").text("Correct!");
   $(".cgif").html("gif");
-  setTimeout(questionTracker, 5000);
+  setTimeout(questionTracker, 2000);
 };
 
 
@@ -101,7 +99,7 @@ function incorrectAnswerScreen() {
   emptyScreen();
   $(".incorrectScreen").text("Incorrect!");
   $(".icgif").html("gif");
-  setTimeout(questionTracker, 5000);
+  setTimeout(questionTracker, 2000);
 };
 
 //no answerscreen
@@ -110,8 +108,7 @@ function noAnswerScreen() {
   emptyScreen();
   $(".noAnsScreen").text("No Answer!");
   $(".nagif").html("gif");
-  setTimeout(questionTracker, 7000);
-
+  setTimeout(questionTracker, 2000);
 };
 
 //------------------------------TIMER-----------------------------
@@ -132,15 +129,16 @@ function startTimer() {
 //------------------------------TIMER-----------------------------
 //function to increase question number
 function questionTracker() {
-  if (questionNumber < 6) {
+  if (questionNumber < 5) {
     questionNumber++;
-    generateQuestionScreen();
-    time = 12;
+    questionScreen();
+    time = 15;
     startTimer();
-  } else {
-    endScreen();
   }
-};
+if (questionNumber === 5) {
+  endScreen();
+}
+  };
 
 function endScreen() {
   emptyScreen();
@@ -151,7 +149,7 @@ function endScreen() {
   //added button to show at the end of the game
   $("#resetTrivia").show();
   $("#resetTrivia").on("click", function (event) {
-    resetGame()
+    resetGame();
     $(this).hide();
   });
   //-----------------------------Reset-Trivia-Button----------------
@@ -162,7 +160,8 @@ function resetGame() {
   incorrect = 0;
   noAnswer = 0;
   questionNumber = 0;
-  time = 12;
+  time = 15;
   emptyScreen();
   $("#startTrivia").show();
+  startTimer();
 };
