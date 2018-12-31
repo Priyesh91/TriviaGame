@@ -11,7 +11,7 @@ var choiceSelected;
 var time = 15;
 var intervalId;
 
-var isClockRunning=false;//Shirley, added
+var isClockRunning = false; //Shirley, added
 
 
 var questionBank = [
@@ -38,6 +38,29 @@ var answerBank = [
   "D. Hulk"
 ];
 
+var correctGif = [
+  'placeholder',
+  '<iframe src="https://giphy.com/embed/pNTxtmpDVOLToFpoDp"></iframe>',
+  '<iframe src="https://giphy.com/embed/8FV8DMUqB6oUOsDkQd"></iframe>',
+  '<iframe src="https://giphy.com/embed/VFB3cJJne7b5m"></iframe>',
+  '<iframe src="https://giphy.com/embed/NksASCr1ru4LK"></iframe>',
+  '<iframe src=">https://giphy.com/embed/eenzqB2MsGKbK"</iframe>'
+];
+
+var incorrectGif = [
+  'placeholder',
+  '<iframe src="https://giphy.com/embed/12HufQyjgtDttK"></iframe>',
+  '<iframe src="https://giphy.com/embed/26AHKGvq2zAJmfDj2"></iframe>',
+  '<iframe src="https://giphy.com/embed/qmfpjpAT2fJRK"></iframe>',
+  '<iframe src="https://giphy.com/embed/NksASCr1ru4LK"></iframe>',
+  '<iframe src="https://giphy.com/embed/k9kKWKaUEDBM4"></iframe>'
+];
+
+var noAnswerGif = [
+  '<iframe src="https://giphy.com/embed/3og0IM1SoMQ3oF7pmM"</iframe>',
+];
+
+
 //function for start button start and hide endtriva button.
 function startButton() {
   //hide endtriva button
@@ -60,17 +83,18 @@ $(document).ready(function () {
 // }
 //empty divs in html file
 function emptyScreen() {
-  $(".timer, .question, .correctScreen, .incorrectScreen, .noAnsScreen, .correct, .incorrect, .noAnswer, .choice1, .choice2, .choice3, .choice4, .cgif, .icgif, .nagif").empty(); 
+  $(".timer, .question, .correctScreen, .incorrectScreen, .noAnsScreen, .correct, .incorrect, .noAnswer, .choice1, .choice2, .choice3, .choice4, .cgif, .icgif, .nagif").empty();
 }
+
 function questionScreen(event) {
   emptyScreen();
-  
+
   $(".question").html(questionBank[questionNumber]);
   $(".choice1").append(choiceBank[questionNumber][0]);
   $(".choice2").append(choiceBank[questionNumber][1]);
   $(".choice3").append(choiceBank[questionNumber][2]);
   $(".choice4").append(choiceBank[questionNumber][3]);
-  
+
   // Shirley, increment after displaying the question
   questionNumber++;
 }
@@ -80,8 +104,8 @@ function correctAnswerScreen() {
   correct++;
   emptyScreen();
   $(".correctScreen").html("Correct!");
-  $(".cgif").html("gif");
-  setTimeout(questionTracker, 2000);
+  $(".cgif").html(correctGif[questionNumber]);
+  setTimeout(questionTracker, 5000);
 };
 
 
@@ -90,8 +114,8 @@ function incorrectAnswerScreen() {
   incorrect++;
   emptyScreen();
   $(".incorrectScreen").text("Incorrect!");
-  $(".icgif").html("gif");
-  setTimeout(questionTracker, 2000);
+  $(".icgif").html(incorrectGif[questionNumber]);
+  setTimeout(questionTracker, 5000);
 };
 
 //no answerscreen
@@ -99,23 +123,23 @@ function noAnswerScreen() {
   noAnswer++;
   emptyScreen();
   $(".noAnsScreen").text("No Answer!");
-  $(".nagif").html("gif");
-  setTimeout(questionTracker, 2000); 
+  $(".nagif").html(noAnswerGif[0]);
+  setTimeout(questionTracker, 7000);
 };
 
 //------------------------------TIMER-----------------------------
 function startTimer() {
   // Shirley, added the clock running flag to avoid creating multiple timers
-  if(!isClockRunning){
+  if (!isClockRunning) {
     intervalId = setInterval(count, 1000);
     isClockRunning = true;
   }
-  
+
 }; // Shirley removed the count function from inside this function and put below
 
 function count() {
   if (time === 0) {
-    stopTimer();//Shirley, used the function to clear interval
+    stopTimer(); //Shirley, used the function to clear interval
     noAnswerScreen();
   }
   if (time > 0) {
@@ -124,7 +148,7 @@ function count() {
   $(".timer").text("Time Remaining: " + time);
 }
 
-function stopTimer(){
+function stopTimer() {
   clearInterval(intervalId);
   isClockRunning = false;
 }
@@ -132,7 +156,7 @@ function stopTimer(){
 //function to increase question number
 function questionTracker() {
   if (questionNumber === 5) {
-    stopTimer();//Shirley Added stop timer
+    stopTimer(); //Shirley Added stop timer
     endScreen();
   } // Moved this block before incrementing
 
@@ -141,12 +165,12 @@ function questionTracker() {
     time = 15;
     startTimer(); //Shirley, every time a question is set, timer is set
   }
-    
-  };
+
+};
 
 function endScreen() {
   emptyScreen();
-  console.log("Result : correct : " + correct +", incorrect : "+ incorrect +", noAnswer : "+ noAnswer);
+  console.log("Result : correct : " + correct + ", incorrect : " + incorrect + ", noAnswer : " + noAnswer);
 
   $(".correct").text(`Correct: ${correct}/5`);
   $(".incorrect").text(`Incorrect: ${incorrect}/5`);
@@ -197,3 +221,4 @@ $(".choice1, .choice2, .choice3, .choice4").on("click", function () {
     incorrectAnswerScreen();
   }
 });
+console.log(answerBank[questionNumber]);
