@@ -1,7 +1,9 @@
 # TriviaGame
-Trivia-Game
+https://priyesh91.github.io/TriviaGame/
 
 The project demonstrates use of JS timeintervals/timeouts through timed trivia game questions.
+
+Special thanks to Shirley(shirleyjambu) with help of debugging js code.
 
 Users can launch the index.html file to interact with the gave preface and once generalized can go use the .js file to see how the code interfaces with the questions.
 

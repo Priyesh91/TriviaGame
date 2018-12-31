@@ -39,7 +39,6 @@ var answerBank = [
 ];
 
 var correctGif = [
-  'placeholder',
   '<iframe src="https://giphy.com/embed/pNTxtmpDVOLToFpoDp"></iframe>',
   '<iframe src="https://giphy.com/embed/8FV8DMUqB6oUOsDkQd"></iframe>',
   '<iframe src="https://giphy.com/embed/VFB3cJJne7b5m"></iframe>',
@@ -48,7 +47,6 @@ var correctGif = [
 ];
 
 var incorrectGif = [
-  'placeholder',
   '<iframe src="https://giphy.com/embed/12HufQyjgtDttK"></iframe>',
   '<iframe src="https://giphy.com/embed/26AHKGvq2zAJmfDj2"></iframe>',
   '<iframe src="https://giphy.com/embed/qmfpjpAT2fJRK"></iframe>',
@@ -96,7 +94,6 @@ function questionScreen(event) {
   $(".choice4").append(choiceBank[questionNumber][3]);
 
   // Shirley, increment after displaying the question
-  questionNumber++;
 }
 
 //correct answerscreen
@@ -134,7 +131,6 @@ function startTimer() {
     intervalId = setInterval(count, 1000);
     isClockRunning = true;
   }
-
 }; // Shirley removed the count function from inside this function and put below
 
 function count() {
@@ -155,17 +151,17 @@ function stopTimer() {
 //------------------------------TIMER-----------------------------
 //function to increase question number
 function questionTracker() {
+  questionNumber++;
   if (questionNumber === 5) {
     stopTimer(); //Shirley Added stop timer
     endScreen();
   } // Moved this block before incrementing
 
   if (questionNumber < 5) {
-    questionScreen(); // Shirley, moved the increment into QuestionScreen
+    questionScreen(); 
     time = 15;
     startTimer(); //Shirley, every time a question is set, timer is set
   }
-
 };
 
 function endScreen() {
